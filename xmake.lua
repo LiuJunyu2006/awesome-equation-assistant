@@ -2,11 +2,15 @@ add_rules("mode.debug", "mode.release")
 
 target("awesome-equation-assistant")
     add_rules("qt.widgetapp")
+    add_rules("qt.quickapp")
     add_headerfiles("src/*.h")
+    remove_headerfiles("src/ui_*.h")
     add_files("src/*.cpp")
-    add_files("src/mainwindow.ui")
+    add_files("src/*.ui")
+    add_files("src/app.qrc")
     -- add files with Q_OBJECT meta (only for qt.moc)
-    add_files("src/mainwindow.h")
+    add_files("src/*.h")
+    remove_files("src/ui_*.h")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

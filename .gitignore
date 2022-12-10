@@ -2,10 +2,14 @@
 .xmake/
 build/
 
-## VsXmake
+# VsXmake
 vsxmake2022/
 
-# MacOS Cache
+# Visual Studio Code
+.vscode/
+
+# MacOS cache
 .DS_Store
 
-
+# Uic cache
+src/ui_*.cpp
