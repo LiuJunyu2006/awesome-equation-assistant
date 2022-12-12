@@ -5,4 +5,20 @@ AllowShortIfStatementsOnASingleLine: Never
 AllowShortLoopsOnASingleLine: false
 ColumnLimit: 120
 DerivePointerAlignment: false
+IncludeCategories:
+  - Regex:           'ui.*'
+    Priority:        0
+    SortPriority:    0
+  - Regex:           '^<Q.*'
+    Priority:        1
+    SortPriority:    0
+  - Regex:           '^<.*\.h>'
+    Priority:        2
+    SortPriority:    0
+  - Regex:           '^<.*'
+    Priority:        3
+    SortPriority:    0
+  - Regex:           '.*'
+    Priority:        4
+    SortPriority:    0
 IndentWidth: 4

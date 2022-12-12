@@ -13,3 +13,6 @@ vsxmake2022/
 
 # Uic cache
 src/ui_*.cpp
+
+# ClangD cache
+.cache/

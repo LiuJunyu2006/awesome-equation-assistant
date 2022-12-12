@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file alias="quadraticequationcalculatorview.qml">qml/quadraticequationcalculatorview.qml</file>
+    </qresource>
+    <qresource prefix="/js">
+        <file alias="katex.js">js/katex.js</file>
+    </qresource>
+</RCC>

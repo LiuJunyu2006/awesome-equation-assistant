@@ -1,7 +1,7 @@
 #include "mainwindow.h"
-
-#include "quadraticequationcalculatorwidget.h"
 #include "ui_mainwindow.h"
+
+#include "widgets/quadraticequationcalculatorwidget.h"
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);

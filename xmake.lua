@@ -3,15 +3,28 @@ add_rules("mode.debug", "mode.release")
 target("awesome-equation-assistant")
     add_rules("qt.widgetapp")
     add_rules("qt.quickapp")
+
     add_headerfiles("src/*.h")
     remove_headerfiles("src/ui_*.h")
     add_files("src/*.cpp")
     add_files("src/*.ui")
-    add_files("src/app.qrc")
-    -- add files with Q_OBJECT meta (only for qt.moc)
     add_files("src/*.h")
     remove_files("src/ui_*.h")
 
+    add_headerfiles("src/widgets/*.h")
+    remove_headerfiles("src/widgets/ui_*.h")
+    add_files("src/widgets/*.cpp")
+    add_files("src/widgets/*.ui")
+    add_files("src/widgets/*.h")
+    remove_files("src/widgets/ui_*.h")
+
+    add_files("resources/app.qrc")
+
+    add_frameworks("QtQuickWidgets") 
+    add_frameworks("QtQuickControls2") 
+    add_frameworks("QtQuickTemplates2")
+    add_frameworks("QtWebEngineCore")
+    add_frameworks("QtWebEngineQuick")
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
 --

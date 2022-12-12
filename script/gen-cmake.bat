@@ -1,0 +1,1 @@
+xmake project -k cmake -m "debug;release"
