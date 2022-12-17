@@ -6,15 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1367</width>
-    <height>813</height>
+    <width>1613</width>
+    <height>973</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string notr="true">方程算力提升工具</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QFormLayout" name="formLayout">
+   <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
     </property>
@@ -27,8 +27,15 @@
     <property name="bottomMargin">
      <number>0</number>
     </property>
-    <item row="0" column="0" colspan="2">
-     <widget class="QMdiArea" name="mdiArea"/>
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>-1</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>true</bool>
+      </property>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -37,19 +44,28 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1367</width>
-     <height>22</height>
+     <width>1613</width>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuNew">
     <property name="title">
-     <string>New</string>
+     <string>新建</string>
     </property>
     <addaction name="actionNewQuadraticEquationCalculator"/>
+    <addaction name="actionNewSimultaneousQuadraticEquationsCalculator"/>
+    <addaction name="separator"/>
+    <addaction name="actionNewCubicEquationCalculator"/>
+    <addaction name="actionNewQuarticEquationCalculator"/>
+    <addaction name="separator"/>
    </widget>
    <addaction name="menuNew"/>
   </widget>
+  <widget class="QStatusBar" name="statusBar"/>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="windowTitle">
+    <string notr="true"/>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -57,10 +73,48 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNewQuadraticEquationCalculator">
    <property name="text">
-    <string>Quadratic Equation Calculator</string>
+    <string notr="true">一元二次方程</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">一元二次方程</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">一元二次方程</string>
+   </property>
+  </action>
+  <action name="actionNewSimultaneousQuadraticEquationsCalculator">
+   <property name="text">
+    <string notr="true">二元二次方程组</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">二元二次方程组</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">二元二次方程组</string>
+   </property>
+  </action>
+  <action name="actionNewCubicEquationCalculator">
+   <property name="text">
+    <string notr="true">一元三次方程</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">一元三次方程</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">一元三次方程</string>
+   </property>
+  </action>
+  <action name="actionNewQuarticEquationCalculator">
+   <property name="text">
+    <string notr="true">一元四次方程</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">一元四次方程</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">一元四次方程</string>
    </property>
   </action>
  </widget>

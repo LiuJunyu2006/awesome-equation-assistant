@@ -1,10 +1,14 @@
-#ifndef QUADRATICEQUATIONCALCULATORWIDGET_H
-#define QUADRATICEQUATIONCALCULATORWIDGET_H
+#pragma once
 
-#include <QtQuickWidgets/QQuickWidget>
+#include "ui_quadraticequationcalculatorwidget.h"
 
-#include <QtWidgets/QFormLayout>
-#include <QtWidgets/QWidget>
+#include <QWidget>
+
+QT_BEGIN_NAMESPACE
+namespace Ui {
+class QuadraticEquationCalculatorWidgetClass;
+};
+QT_END_NAMESPACE
 
 class QuadraticEquationCalculatorWidget : public QWidget {
     Q_OBJECT
@@ -14,8 +18,5 @@ class QuadraticEquationCalculatorWidget : public QWidget {
     ~QuadraticEquationCalculatorWidget();
 
   private:
-    QQuickWidget* widget;
-    QFormLayout* layout;
+    Ui::QuadraticEquationCalculatorWidgetClass* ui;
 };
-
-#endif  // QUADRATICEQUATIONCALCULATORWIDGET_H

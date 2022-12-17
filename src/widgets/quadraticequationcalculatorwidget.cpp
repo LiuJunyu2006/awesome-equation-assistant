@@ -1,14 +1,10 @@
-#include "quadraticequationcalculatorwidget.h"
+#include "widgets/quadraticequationcalculatorwidget.h"
 
-#include <QtCore/QUrl>
-
-QuadraticEquationCalculatorWidget::QuadraticEquationCalculatorWidget(QWidget* parent) : QWidget(parent) {
-    widget = new QQuickWidget(this);
-    widget->setResizeMode(QQuickWidget::SizeRootObjectToView);
-    widget->setSource(QUrl("qrc:/qml/quadraticequationcalculatorview.qml"));
-    layout = new QFormLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setWidget(0, QFormLayout::SpanningRole, widget);
+QuadraticEquationCalculatorWidget::QuadraticEquationCalculatorWidget(QWidget* parent)
+    : QWidget(parent), ui(new Ui::QuadraticEquationCalculatorWidgetClass()) {
+    ui->setupUi(this);
 }
 
-QuadraticEquationCalculatorWidget::~QuadraticEquationCalculatorWidget() {}
+QuadraticEquationCalculatorWidget::~QuadraticEquationCalculatorWidget() {
+    delete ui;
+}

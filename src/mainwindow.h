@@ -1,5 +1,4 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#pragma once
 
 #include <QtWidgets/QMainWindow>
 
@@ -14,11 +13,13 @@ class MainWindow : public QMainWindow {
     explicit MainWindow(QWidget* parent = 0);
     ~MainWindow();
 
-    private slots:
+  private slots:
     void newQuadraticEquationCalculator();
+    void newSimultaneousQuadraticEquationsCalculator();
+    void newCubicEquationCalculator();
+    void newQuarticEquationCalculator();
 
   private:
     Ui::MainWindow* ui;
+    int id;
 };
-
-#endif  // MAINWINDOW_H

@@ -12,6 +12,7 @@ target("awesome-equation-assistant")
     remove_files("src/ui_*.h")
 
     add_headerfiles("src/widgets/*.h")
+    add_headerfiles("src/math/*.h")
     remove_headerfiles("src/widgets/ui_*.h")
     add_files("src/widgets/*.cpp")
     add_files("src/widgets/*.ui")
@@ -20,11 +21,17 @@ target("awesome-equation-assistant")
 
     add_files("resources/app.qrc")
 
-    add_frameworks("QtQuickWidgets") 
-    add_frameworks("QtQuickControls2") 
-    add_frameworks("QtQuickTemplates2")
     add_frameworks("QtWebEngineCore")
-    add_frameworks("QtWebEngineQuick")
+    add_frameworks("QtWebEngineWidgets")
+
+    add_includedirs("libs")
+    add_includedirs("src")
+
+    after_build(function (target)
+        os.cp("$(projectdir)/scripts/js/katex.min.js", "$(buildir)/$(os)/$(arch)/$(mode)/js/katex.min.js");
+        os.cp("$(projectdir)/scripts/js/auto-render.min.js", "$(buildir)/$(os)/$(arch)/$(mode)/js/auto-render.min.js");
+        os.cp("$(projectdir)/scripts/css/katex.min.css", "$(buildir)/$(os)/$(arch)/$(mode)/css/katex.min.css");
+    end)
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
 --
