@@ -1,5 +1,10 @@
 add_rules("mode.debug", "mode.release")
 
+add_requires("vcpkg::boost-multiprecision")
+add_requires("vcpkg::boost-rational")
+add_requires("vcpkg::exprtk")
+add_requires("vcpkg::symengine")
+
 target("awesome-equation-assistant")
     add_rules("qt.widgetapp")
     add_rules("qt.quickapp")
@@ -12,26 +17,30 @@ target("awesome-equation-assistant")
     remove_files("src/ui_*.h")
 
     add_headerfiles("src/widgets/*.h")
-    add_headerfiles("src/math/*.h")
     remove_headerfiles("src/widgets/ui_*.h")
     add_files("src/widgets/*.cpp")
     add_files("src/widgets/*.ui")
     add_files("src/widgets/*.h")
     remove_files("src/widgets/ui_*.h")
 
+    add_headerfiles("src/math/*.h")
+
+    add_headerfiles("src/solutions/*.h")
+    add_files("src/solutions/*.cpp")
+    add_files("src/solutions/*.h")
+
     add_files("resources/app.qrc")
 
     add_frameworks("QtWebEngineCore")
     add_frameworks("QtWebEngineWidgets")
 
-    add_includedirs("libs")
     add_includedirs("src")
 
-    after_build(function (target)
-        os.cp("$(projectdir)/scripts/js/katex.min.js", "$(buildir)/$(os)/$(arch)/$(mode)/js/katex.min.js");
-        os.cp("$(projectdir)/scripts/js/auto-render.min.js", "$(buildir)/$(os)/$(arch)/$(mode)/js/auto-render.min.js");
-        os.cp("$(projectdir)/scripts/css/katex.min.css", "$(buildir)/$(os)/$(arch)/$(mode)/css/katex.min.css");
-    end)
+    add_packages("vcpkg::boost-multiprecision")
+    add_packages("vcpkg::boost-rational")
+    add_packages("vcpkg::exprtk")
+    add_packages("vcpkg::symengine")
+
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
 --

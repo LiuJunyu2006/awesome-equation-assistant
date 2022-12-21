@@ -1,4 +1,4 @@
-#include "katexviewer.h"
+#include "widgets/katexviewer.h"
 
 KatexViewer::KatexViewer(QWidget* parent) : QWidget(parent) {
     view = new QWebEngineView;

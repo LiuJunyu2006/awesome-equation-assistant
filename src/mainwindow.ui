@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1613</width>
-    <height>973</height>
+    <width>704</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -44,20 +44,26 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1613</width>
-     <height>23</height>
+     <width>704</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuNew">
     <property name="title">
-     <string>新建</string>
+     <string notr="true">新建</string>
     </property>
+    <addaction name="actionNewSystemOfLinearEquationsCalculator"/>
+    <addaction name="separator"/>
     <addaction name="actionNewQuadraticEquationCalculator"/>
     <addaction name="actionNewSimultaneousQuadraticEquationsCalculator"/>
     <addaction name="separator"/>
     <addaction name="actionNewCubicEquationCalculator"/>
     <addaction name="actionNewQuarticEquationCalculator"/>
     <addaction name="separator"/>
+    <addaction name="actionNewLinearCongruenceEquationCalculator"/>
+    <addaction name="actionNewCongruenceEquationsCalculator"/>
+    <addaction name="separator"/>
+    <addaction name="actionNewZeroPointOfMonotonicFunctionCalculator"/>
    </widget>
    <addaction name="menuNew"/>
   </widget>
@@ -73,6 +79,17 @@
     <bool>false</bool>
    </attribute>
   </widget>
+  <action name="actionNewSystemOfLinearEquationsCalculator">
+   <property name="text">
+    <string notr="true">线性方程组</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">线性方程组</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">线性方程组</string>
+   </property>
+  </action>
   <action name="actionNewQuadraticEquationCalculator">
    <property name="text">
     <string notr="true">一元二次方程</string>
@@ -115,6 +132,39 @@
    </property>
    <property name="toolTip">
     <string notr="true">一元四次方程</string>
+   </property>
+  </action>
+  <action name="actionNewLinearCongruenceEquationCalculator">
+   <property name="text">
+    <string notr="true">线性同余方程</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">线性同余方程</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">线性同余方程</string>
+   </property>
+  </action>
+  <action name="actionNewCongruenceEquationsCalculator">
+   <property name="text">
+    <string notr="true">线性同余方程组</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">线性同余方程组</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">线性同余方程组</string>
+   </property>
+  </action>
+  <action name="actionNewZeroPointOfMonotonicFunctionCalculator">
+   <property name="text">
+    <string notr="true">单调函数零点</string>
+   </property>
+   <property name="iconText">
+    <string notr="true">单调函数零点</string>
+   </property>
+   <property name="toolTip">
+    <string notr="true">单调函数零点</string>
    </property>
   </action>
  </widget>

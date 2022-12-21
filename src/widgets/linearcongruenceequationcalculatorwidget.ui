@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>QuarticEquationCalculatorWidgetClass</class>
- <widget class="QWidget" name="QuarticEquationCalculatorWidgetClass">
+ <class>LinearCongruenceEquationCalculatorWidgetClass</class>
+ <widget class="QWidget" name="LinearCongruenceEquationCalculatorWidgetClass">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>600</width>
-    <height>400</height>
+    <width>588</width>
+    <height>481</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string notr="true">一元三次方程</string>
+   <string notr="true">线性同余方程</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_3">
    <item row="0" column="0">
@@ -19,26 +19,12 @@
      <item row="0" column="0">
       <widget class="QLabel" name="label">
        <property name="text">
-        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ax&lt;span style=&quot; vertical-align:super;&quot;&gt;3&lt;/span&gt;+bx&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt;+cx+d=0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ax≡b(mod n)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
       </widget>
      </item>
      <item row="1" column="0">
       <layout class="QGridLayout" name="gridLayout">
-       <item row="2" column="0">
-        <widget class="QLabel" name="label_4">
-         <property name="text">
-          <string notr="true">c=</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="lineEditA">
-         <property name="text">
-          <string notr="true"/>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
          <property name="text">
@@ -46,8 +32,8 @@
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLineEdit" name="lineEditB">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="lineEditA">
          <property name="text">
           <string notr="true"/>
          </property>
@@ -60,22 +46,22 @@
          </property>
         </widget>
        </item>
-       <item row="2" column="1">
-        <widget class="QLineEdit" name="lineEditC">
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="lineEditB">
          <property name="text">
           <string notr="true"/>
          </property>
         </widget>
        </item>
-       <item row="3" column="0">
-        <widget class="QLabel" name="label_5">
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_4">
          <property name="text">
-          <string notr="true">d=</string>
+          <string notr="true">n=</string>
          </property>
         </widget>
        </item>
-       <item row="3" column="1">
-        <widget class="QLineEdit" name="lineEditD">
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="lineEditC">
          <property name="text">
           <string notr="true"/>
          </property>

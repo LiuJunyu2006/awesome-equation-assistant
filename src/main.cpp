@@ -1,14 +1,13 @@
-#include <QtQml/QQmlApplicationEngine>
-#include <QtQml/QQmlContext>
+#include <QLabel>
 #include <QtWidgets/QApplication>
 
 #include "mainwindow.h"
-#include "math/fraction.h"
-#include "widgets/katexviewer.h"
+
+#include "solutions/fraction.h"
 
 int main(int argc, char* argv[]) {
-    // QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    // QApplication::setStyle("Windows");
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    // QApplication::setStyle("Plastique");
     QApplication a(argc, argv);
 
     MainWindow w;
