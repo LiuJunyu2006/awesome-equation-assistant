@@ -16,3 +16,6 @@ src/ui_*.cpp
 
 # ClangD cache
 .cache/
+
+# IDEA cache
+.idea/

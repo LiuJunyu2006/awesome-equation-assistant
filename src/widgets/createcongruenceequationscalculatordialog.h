@@ -2,7 +2,7 @@
 
 #include "ui_createcongruenceequationscalculatordialog.h"
 
-#include <QDialog>
+#include <QtWidgets/QDialog>
 
 #include "mainwindow.h"
 

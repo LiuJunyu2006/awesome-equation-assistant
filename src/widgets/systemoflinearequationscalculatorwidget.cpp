@@ -128,14 +128,14 @@ void SystemOfLinearEquationsCalculatorWidget::generateTip() {
 }
 
 void SystemOfLinearEquationsCalculatorWidget::on_pushButton_clicked() {
-    QVector<QVector<Fraction>> vec(equations);
-    for (int i = 0; i < equations; ++i) {
-        vec[i].resize(unknowns + 1);
-        for (int j = 0; j < unknowns + 1; ++j) {
-            QString str = ui->tableWidget->item(i, j)->text();
-            vec[i][j] = Fraction(str);
-        }
-    }
+    // QVector<QVector<Fraction>> vec(equations);
+    // for (int i = 0; i < equations; ++i) {
+    //     vec[i].resize(unknowns + 1);
+    //     for (int j = 0; j < unknowns + 1; ++j) {
+    //         QString str = ui->tableWidget->item(i, j)->text();
+    //         vec[i][j] = Fraction(str);
+    //     }
+    // }
     ui->widget->clearContent();
-    ui->widget->addContent(solveSystemOfLinearEquations(vec));
+    // ui->widget->addContent(solveSystemOfLinearEquations(vec));
 }

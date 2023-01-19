@@ -2,7 +2,7 @@
 
 #include "ui_createsystemoflinearequationscalculatordialog.h"
 
-#include <QDialog>
+#include <QtWidgets/QDialog>
 
 #include "mainwindow.h"
 
