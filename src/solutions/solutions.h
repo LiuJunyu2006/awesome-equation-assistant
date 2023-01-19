@@ -6,8 +6,9 @@
 #include <string>
 #include <vector>
 
-using SymEngine::Expression;
 using Decimal = boost::multiprecision::cpp_dec_float_100;
+
+using SymEngine::Expression;
 
 // QString solveSystemOfLinearEquations(QVector<QVector<Fraction>> a);
 

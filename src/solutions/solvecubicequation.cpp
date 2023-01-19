@@ -7,7 +7,7 @@ using SymEngine::symbol;
 using boost::multiprecision::to_string;
 
 std::string solveCubicEquation(const Decimal& a, const Decimal& b, const Decimal& c, const Decimal& d) {
-    if (a == Decimal(0))
+    if (a.is_zero())
         return "\\text{"
                "\350\257\245\346\226\271\347\250\213\344\270\215\346\230\257\344\270\200\345\205\203\344\270\211\346"
                "\254\241\346\226\271\347\250\213\357\274\201}";

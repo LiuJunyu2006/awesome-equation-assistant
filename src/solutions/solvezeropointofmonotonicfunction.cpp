@@ -3,9 +3,10 @@
 #include <string>
 #include <utility>
 
+#include "solutions/decimal.h"
 #include "solutions/solutions.h"
 
-const Decimal EPS = boost::multiprecision::pow(Decimal(10), -100);
+const Decimal EPS(boost::multiprecision::pow(Decimal(10), -100));
 
 Decimal calculateExpression(const std::string str) {
     exprtk::expression<Decimal> expr;
@@ -18,10 +19,10 @@ std::pair<Decimal, Decimal> binarySearchIncrease(const std::string& expr, Decima
     Decimal mid;
     while (r - l > EPS) {
         std::string tmp(expr);
-        mid = (l + r) / 2;
+        mid = (l + r) / Decimal(2);
         while (tmp.find('x') != std::string::npos)
             tmp.replace(tmp.find('x'), 1, "(" + boost::multiprecision::to_string(mid) + ")");
-        if (calculateExpression(tmp) < 0.0)
+        if (calculateExpression(tmp) < Decimal(0))
             l = mid;
         else
             r = mid;
@@ -33,10 +34,10 @@ std::pair<Decimal, Decimal> binarySearchDecrease(const std::string& expr, Decima
     Decimal mid;
     while (r - l > EPS) {
         std::string tmp(expr);
-        mid = (l + r) / 2;
+        mid = (l + r) / Decimal(2);
         while (tmp.find('x') != std::string::npos)
             tmp.replace(tmp.find('x'), 1, "(" + boost::multiprecision::to_string(mid) + ")");
-        if (calculateExpression(tmp) > 0.0)
+        if (calculateExpression(tmp) > Decimal(0))
             l = mid;
         else
             r = mid;
