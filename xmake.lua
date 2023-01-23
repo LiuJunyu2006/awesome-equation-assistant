@@ -1,15 +1,8 @@
 add_rules("mode.debug", "mode.release")
 
--- add_requires("vcpkg::boost-multiprecision")
--- add_requires("vcpkg::boost-rational")
-add_requires("vcpkg::exprtk")
 add_requires("vcpkg::symengine")
 add_requires("vcpkg::boost-multiprecision")
-if is_plat("windows") then
-    add_requires("vcpkg::mpir")
-else
-    add_requires("vcpkg::mpl")
-end
+add_requires("vcpkg::boost-rational")
 
 target("awesome-equation-assistant")
     if is_plat("windows") then
@@ -47,14 +40,8 @@ target("awesome-equation-assistant")
     add_includedirs("src")
 
     add_packages("vcpkg::boost-multiprecision")
-    -- add_packages("vcpkg::boost-rational")
-    add_packages("vcpkg::exprtk")
     add_packages("vcpkg::symengine")
-    if is_plat("windows") then
-        add_packages("vcpkg::mpir")
-    else
-        add_packages("vcpkg::mpl")
-    end
+    add_packages("vcpkg::boost-rational")
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

@@ -4,6 +4,8 @@
 
 #include <QWidget>
 
+#include "widgets/inputareawidget.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class CongruenceEquationsCalculatorWidgetClass;
@@ -21,6 +23,7 @@ class CongruenceEquationsCalculatorWidget : public QWidget {
 
   private:
     Ui::CongruenceEquationsCalculatorWidgetClass* ui;
+    InputAreaWidget* inputArea;
 
     int equations;
 };

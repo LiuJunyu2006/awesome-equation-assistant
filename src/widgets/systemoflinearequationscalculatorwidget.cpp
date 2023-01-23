@@ -2,7 +2,6 @@
 
 #include <QtWidgets/QTableWidgetItem>
 
-#include "solutions/fraction.h"
 #include "solutions/solutions.h"
 
 QString toSubscript(const QString& str) {
@@ -93,7 +92,7 @@ SystemOfLinearEquationsCalculatorWidget::~SystemOfLinearEquationsCalculatorWidge
 }
 
 void SystemOfLinearEquationsCalculatorWidget::init(int nums, int lines) {
-    unknowns = nums;
+    /*unknowns = nums;
     equations = lines;
     int columns = nums + 1;
     generateTip();
@@ -108,11 +107,11 @@ void SystemOfLinearEquationsCalculatorWidget::init(int nums, int lines) {
         item->setText("b");
         ui->tableWidget->setHorizontalHeaderItem(unknowns, item);
     }
-    ui->tableWidget->setRowCount(lines);
+    ui->tableWidget->setRowCount(lines);*/
 }
 
-void SystemOfLinearEquationsCalculatorWidget::generateTip() {
-    QString tip("<html><head/><body><p>%1</p></body></html>");
+void SystemOfLinearEquationsCalculatorWidget::generateTip() const {
+    /*QString tip("<html><head/><body><p>%1</p></body></html>");
     for (int i = 1; i <= equations; ++i) {
         tip = tip.arg(
             QString(R"(a<span style="vertical-align:sub;">i,%1</span>x<span style="vertical-align:sub;">i,%1</span>)")
@@ -124,10 +123,10 @@ void SystemOfLinearEquationsCalculatorWidget::generateTip() {
             tip = tip.arg("=%1");
     }
     tip = tip.arg(R"(b<span style="vertical-align:sub;">i</span>)");
-    ui->label->setText(tip);
+    ui->label->setText(tip);*/
 }
 
-void SystemOfLinearEquationsCalculatorWidget::on_pushButton_clicked() {
+void SystemOfLinearEquationsCalculatorWidget::on_pushButton_clicked() const {
     // QVector<QVector<Fraction>> vec(equations);
     // for (int i = 0; i < equations; ++i) {
     //     vec[i].resize(unknowns + 1);

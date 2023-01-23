@@ -17,7 +17,7 @@ ZeroPointOfMonotonicFunctionCalculatorWidget::~ZeroPointOfMonotonicFunctionCalcu
     delete ui;
 }
 
-void ZeroPointOfMonotonicFunctionCalculatorWidget::on_pushButton_clicked() {
+void ZeroPointOfMonotonicFunctionCalculatorWidget::on_pushButton_clicked() const {
     ui->widget->clearContent();
     ui->widget->addContent(QString::fromUtf8(solveZeroPointOfMonotonicFunction(
         std::string(ui->lineEditFX->text().toLocal8Bit()), Decimal(std::string(ui->lineEditL->text().toLocal8Bit())),

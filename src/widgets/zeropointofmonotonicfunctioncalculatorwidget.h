@@ -18,7 +18,7 @@ class ZeroPointOfMonotonicFunctionCalculatorWidget : public QWidget {
     ~ZeroPointOfMonotonicFunctionCalculatorWidget();
 
   private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_clicked() const;
 
   private:
     Ui::ZeroPointOfMonotonicFunctionCalculatorWidgetClass* ui;

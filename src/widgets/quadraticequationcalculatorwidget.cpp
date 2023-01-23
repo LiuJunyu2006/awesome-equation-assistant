@@ -13,7 +13,7 @@ QuadraticEquationCalculatorWidget::~QuadraticEquationCalculatorWidget() {
     delete ui;
 }
 
-void QuadraticEquationCalculatorWidget::on_pushButton_clicked() {
+void QuadraticEquationCalculatorWidget::on_pushButton_clicked() const {
     ui->widget->clearContent();
     ui->widget->addContent(
         QString::fromUtf8(solveQuadraticEquation(Expression(std::string(ui->lineEditA->text().toLocal8Bit())),

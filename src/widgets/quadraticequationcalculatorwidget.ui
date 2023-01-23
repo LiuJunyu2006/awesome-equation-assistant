@@ -92,6 +92,12 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>lineEditA</tabstop>
+  <tabstop>lineEditB</tabstop>
+  <tabstop>lineEditC</tabstop>
+  <tabstop>pushButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

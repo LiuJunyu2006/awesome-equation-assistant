@@ -13,7 +13,7 @@ class MainWindow : public QMainWindow {
     explicit MainWindow(QWidget* parent = 0);
     ~MainWindow();
 
-public slots:
+  public slots:
     void generateSystemOfLinearEquationsCalculator(int unknowns, int equations);
 
     void generateCongruenceEquationsCalculator(int unknowns);
@@ -31,6 +31,8 @@ public slots:
     void createCongruenceEquationsCalculator();
 
     void newZeroPointOfMonotonicFunctionCalculator();
+
+    void closeTab(int index) const;
 
   private:
     Ui::MainWindow* ui;

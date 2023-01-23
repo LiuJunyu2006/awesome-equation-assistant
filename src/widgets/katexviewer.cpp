@@ -24,7 +24,7 @@ void KatexViewer::addContent(const QString& str) {
     flush();
 }
 
-void KatexViewer::flush() {
+void KatexViewer::flush() const {
     view->setHtml(R"(<!DOCTYPE html>
 <!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
 <html>

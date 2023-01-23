@@ -17,6 +17,9 @@ class QuarticEquationCalculatorWidget : public QWidget {
     QuarticEquationCalculatorWidget(QWidget* parent = nullptr);
     ~QuarticEquationCalculatorWidget();
 
+  private slots:
+    void on_pushButton_clicked() const;
+
   private:
     Ui::QuarticEquationCalculatorWidgetClass* ui;
 };

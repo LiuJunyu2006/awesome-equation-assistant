@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 
     connect(ui->actionNewZeroPointOfMonotonicFunctionCalculator, &QAction::triggered, this,
             &MainWindow::newZeroPointOfMonotonicFunctionCalculator);
+
+    connect(ui->tabWidget, &QTabWidget::tabCloseRequested, this, &MainWindow::closeTab);
 }
 
 MainWindow::~MainWindow() {
@@ -43,23 +45,23 @@ MainWindow::~MainWindow() {
 void MainWindow::generateSystemOfLinearEquationsCalculator(int unknowns, int equations) {
     ++id;
     auto widget = new SystemOfLinearEquationsCalculatorWidget(ui->tabWidget);
+    widget->init(unknowns, equations);
     ui->tabWidget->addTab(
         widget, QString::fromUtf8("\346\226\271\347\250\213 "
                                   "%1\357\274\232\347\272\277\346\200\247\346\226\271\347\250\213\347\273\204")
                     .arg(id));
-    widget->init(unknowns, equations);
 }
 
 void MainWindow::generateCongruenceEquationsCalculator(int unknowns) {
     ++id;
     auto widget = new CongruenceEquationsCalculatorWidget(ui->tabWidget);
+    widget->init(unknowns);
     ui->tabWidget->addTab(
         widget,
         QString::fromUtf8(
             "\346\226\271\347\250\213 "
             "%1\357\274\232\347\272\277\346\200\247\345\220\214\344\275\231\346\226\271\347\250\213\347\273\204")
             .arg(id));
-    widget->init(unknowns);
 }
 
 void MainWindow::createSystemOfLinearEquationsCalculator() {
@@ -131,4 +133,8 @@ void MainWindow::newZeroPointOfMonotonicFunctionCalculator() {
         QString::fromUtf8("\346\226\271\347\250\213 "
                           "%1\357\274\232\345\215\225\350\260\203\345\207\275\346\225\260\351\233\266\347\202\271")
             .arg(id));
+}
+
+void MainWindow::closeTab(int index) const {
+    ui->tabWidget->removeTab(index);
 }

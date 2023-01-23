@@ -3,41 +3,38 @@
 #include <string>
 #include <utility>
 
-#include "solutions/decimal.h"
 #include "solutions/solutions.h"
 
-const Decimal EPS(boost::multiprecision::pow(Decimal(10), -100));
+const Decimal EPS = boost::multiprecision::pow(Decimal(2), -100);
 
-Decimal calculateExpression(const std::string str) {
-    exprtk::expression<Decimal> expr;
-    exprtk::parser<Decimal> parser;
-    parser.compile(str, expr);
-    return expr.value();
+bool xCalculateExpression(const std::string str) {
+    SymEngine::Expression expr(str);
+    return SymEngine::is_positive(expr);
 }
 
-std::pair<Decimal, Decimal> binarySearchIncrease(const std::string& expr, Decimal l, Decimal r) {
+std::pair<Decimal, Decimal> xBinarySearchIncrease(const std::string& expr, Decimal l, Decimal r) {
     Decimal mid;
     while (r - l > EPS) {
         std::string tmp(expr);
-        mid = (l + r) / Decimal(2);
+        mid = (l + r) / 2;
         while (tmp.find('x') != std::string::npos)
-            tmp.replace(tmp.find('x'), 1, "(" + boost::multiprecision::to_string(mid) + ")");
-        if (calculateExpression(tmp) < Decimal(0))
-            l = mid;
-        else
+            tmp.replace(tmp.find('x'), 1, "(" + mid.str(100, std::ios_base::fixed) + ")");
+        if (xCalculateExpression(tmp))
             r = mid;
+        else
+            l = mid;
     }
     return std::make_pair(l, r);
 }
 
-std::pair<Decimal, Decimal> binarySearchDecrease(const std::string& expr, Decimal l, Decimal r) {
+std::pair<Decimal, Decimal> xBinarySearchDecrease(const std::string& expr, Decimal l, Decimal r) {
     Decimal mid;
     while (r - l > EPS) {
         std::string tmp(expr);
-        mid = (l + r) / Decimal(2);
+        mid = (l + r) / 2;
         while (tmp.find('x') != std::string::npos)
-            tmp.replace(tmp.find('x'), 1, "(" + boost::multiprecision::to_string(mid) + ")");
-        if (calculateExpression(tmp) > Decimal(0))
+            tmp.replace(tmp.find('x'), 1, "(" + mid.str(100) + ")");
+        if (xCalculateExpression(tmp))
             l = mid;
         else
             r = mid;
@@ -48,9 +45,8 @@ std::pair<Decimal, Decimal> binarySearchDecrease(const std::string& expr, Decima
 std::string solveZeroPointOfMonotonicFunction(const std::string& expr, Decimal l, Decimal r, bool inc) {
     std::pair<Decimal, Decimal> res;
     if (inc)
-        res = binarySearchIncrease(expr, l, r);
+        res = xBinarySearchIncrease(expr, l, r);
     else
-        res = binarySearchDecrease(expr, l, r);
-    return res.first.str(96, std::ios_base::fixed) + " \\leq x \\leq " + res.second.str(96, std::ios_base::fixed) +
-           "\\\\ eps = " + EPS.str(96, std::ios_base::fixed);
+        res = xBinarySearchDecrease(expr, l, r);
+    return "x \\approx " + res.second.str(6, std::ios_base::fixed);
 }

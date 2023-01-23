@@ -13,7 +13,7 @@ CubicEquationCalculatorWidget::~CubicEquationCalculatorWidget() {
     delete ui;
 }
 
-void CubicEquationCalculatorWidget::on_pushButton_clicked() {
+void CubicEquationCalculatorWidget::on_pushButton_clicked() const {
     ui->widget->clearContent();
     ui->widget->addContent(
         QString::fromUtf8(solveCubicEquation(Decimal(std::string(ui->lineEditA->text().toLocal8Bit())),

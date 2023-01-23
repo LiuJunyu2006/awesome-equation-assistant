@@ -20,12 +20,12 @@ class SystemOfLinearEquationsCalculatorWidget : public QWidget {
     void init(int nums, int lines);
 
   private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_clicked() const;
 
   private:
     Ui::SystemOfLinearEquationsCalculatorWidgetClass* ui;
 
     int unknowns, equations;
 
-    void generateTip();
+    void generateTip() const;
 };

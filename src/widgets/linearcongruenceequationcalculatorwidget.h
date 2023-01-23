@@ -17,6 +17,9 @@ class LinearCongruenceEquationCalculatorWidget : public QWidget {
     LinearCongruenceEquationCalculatorWidget(QWidget* parent = nullptr);
     ~LinearCongruenceEquationCalculatorWidget();
 
+  private slots:
+    void on_pushButton_clicked() const;
+
   private:
     Ui::LinearCongruenceEquationCalculatorWidgetClass* ui;
 };

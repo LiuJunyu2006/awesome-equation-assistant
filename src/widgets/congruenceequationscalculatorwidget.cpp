@@ -3,6 +3,7 @@
 CongruenceEquationsCalculatorWidget::CongruenceEquationsCalculatorWidget(QWidget* parent)
     : QWidget(parent), ui(new Ui::CongruenceEquationsCalculatorWidgetClass()) {
     ui->setupUi(this);
+    inputArea = new InputAreaWidget(this);
 }
 
 CongruenceEquationsCalculatorWidget::~CongruenceEquationsCalculatorWidget() {
@@ -11,5 +12,6 @@ CongruenceEquationsCalculatorWidget::~CongruenceEquationsCalculatorWidget() {
 
 void CongruenceEquationsCalculatorWidget::init(int lines) {
     equations = lines;
-    ui->tableWidget->setRowCount(lines);
+    inputArea->init(lines, 2);
+    ui->gridLayout->replaceWidget(ui->placeholder, inputArea);
 }

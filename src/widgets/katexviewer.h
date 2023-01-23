@@ -20,7 +20,7 @@ class KatexViewer : public QWidget {
     void addContent(const QString& str);
 
   private slots:
-    void flush();
+    void flush() const;
 
   private:
     QWebEngineView* view;
