@@ -120,7 +120,14 @@
    <container>1</container>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>lineEditA</tabstop>
+  <tabstop>lineEditB</tabstop>
+  <tabstop>lineEditC</tabstop>
+  <tabstop>lineEditD</tabstop>
+  <tabstop>lineEditE</tabstop>
+  <tabstop>pushButton_2</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
-
