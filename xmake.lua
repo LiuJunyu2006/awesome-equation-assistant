@@ -10,7 +10,6 @@ target("awesome-equation-assistant")
     end
 
     add_rules("qt.widgetapp")
-    add_rules("qt.quickapp")
 
     add_headerfiles("src/*.h")
     --remove_headerfiles("src/ui_*.h")
