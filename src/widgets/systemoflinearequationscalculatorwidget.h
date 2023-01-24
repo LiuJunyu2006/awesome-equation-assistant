@@ -2,7 +2,10 @@
 
 #include "ui_systemoflinearequationscalculatorwidget.h"
 
-#include <QWidget>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QWidget>
+
+#include "widgets/inputareawidget.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -24,6 +27,8 @@ class SystemOfLinearEquationsCalculatorWidget : public QWidget {
 
   private:
     Ui::SystemOfLinearEquationsCalculatorWidgetClass* ui;
+    InputAreaWidget* inputArea;
+    QGridLayout* gridLayout;
 
     int unknowns, equations;
 

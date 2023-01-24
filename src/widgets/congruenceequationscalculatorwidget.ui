@@ -13,28 +13,42 @@
   <property name="windowTitle">
    <string notr="true">线性同余方程组</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="0">
-    <widget class="KatexViewer" name="widget" native="true"/>
-   </item>
-   <item row="0" column="0">
-    <widget class="QLabel" name="label">
-     <property name="text">
-      <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;x≡a&lt;span style=&quot; vertical-align:sub;&quot;&gt;i&lt;/span&gt;(mod n&lt;span style=&quot; vertical-align:sub;&quot;&gt;i&lt;/span&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QPushButton" name="pushButton">
-     <property name="text">
-      <string notr="true">解！</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0">
-    <widget class="QWidget" name="placeholder" native="true"/>
-   </item>
-  </layout>
+  <widget class="KatexViewer" name="widget" native="true">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>171</y>
+     <width>386</width>
+     <height>125</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>9</y>
+     <width>70</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;x≡a&lt;span style=&quot; vertical-align:sub;&quot;&gt;i&lt;/span&gt;(mod n&lt;span style=&quot; vertical-align:sub;&quot;&gt;i&lt;/span&gt;)&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>141</y>
+     <width>75</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string notr="true">解！</string>
+   </property>
+  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>

@@ -15,7 +15,7 @@ class InputWidget : public QWidget {
     explicit InputWidget(QWidget* parent = nullptr);
     ~InputWidget();
 
-    void setText(const QString& str) const;
+    void setLabel(const QString& str) const;
 
     QString getResult() const;
 

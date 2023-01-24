@@ -4,7 +4,6 @@
 
 #include <QWidget>
 
-
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class SimultaneousQuadraticEquationsCalculatorWidgetClass;
@@ -17,6 +16,9 @@ class SimultaneousQuadraticEquationsCalculatorWidget : public QWidget {
   public:
     SimultaneousQuadraticEquationsCalculatorWidget(QWidget* parent = nullptr);
     ~SimultaneousQuadraticEquationsCalculatorWidget();
+
+  private slots:
+    void on_pushButton_clicked() const;
 
   private:
     Ui::SimultaneousQuadraticEquationsCalculatorWidgetClass* ui;

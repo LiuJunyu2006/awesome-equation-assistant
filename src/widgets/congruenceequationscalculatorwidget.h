@@ -2,7 +2,8 @@
 
 #include "ui_congruenceequationscalculatorwidget.h"
 
-#include <QWidget>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QWidget>
 
 #include "widgets/inputareawidget.h"
 
@@ -21,9 +22,13 @@ class CongruenceEquationsCalculatorWidget : public QWidget {
 
     void init(int lines);
 
+  private slots:
+    void on_pushButton_clicked() const;
+
   private:
     Ui::CongruenceEquationsCalculatorWidgetClass* ui;
     InputAreaWidget* inputArea;
+    QGridLayout* gridLayout;
 
     int equations;
 };

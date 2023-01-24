@@ -1,8 +1,8 @@
 #include "widgets/inputareawidget.h"
 
 InputAreaWidget::InputAreaWidget(QWidget* parent) : QScrollArea(parent) {
-    gridLayout = new QGridLayout(this);
-    setLayout(gridLayout);
+    contents = new QWidget(this);
+    gridLayout = new QGridLayout(contents);
 }
 
 InputAreaWidget::~InputAreaWidget() {
@@ -16,7 +16,17 @@ void InputAreaWidget::init(int row, int column) {
     inputWidgets.resize(row);
     for (int i = 0; i < row; ++i)
         for (int j = 0; j < column; ++j) {
-            inputWidgets[i].push_back(new InputWidget(this));
+            inputWidgets[i].push_back(new InputWidget(contents));
             gridLayout->addWidget(inputWidgets[i][j], i, j);
         }
+    contents->setLayout(gridLayout);
+    setWidget(contents);
+}
+
+void InputAreaWidget::setLabel(int x, int y, const QString& str) {
+    inputWidgets[x][y]->setLabel(str);
+}
+
+QString InputAreaWidget::getResult(int x, int y) {
+    return inputWidgets[x][y]->getResult();
 }

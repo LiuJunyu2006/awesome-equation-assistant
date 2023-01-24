@@ -30,3 +30,7 @@
 //         res += QString("x_%1=").arg(i + 1) + a[i][m - 1].toKaTex() + "\\\\";
 //     return res;
 // }
+
+std::string solveSystemOfLinearEquations(int n, int m, const std::vector<std::vector<Rational>>) {
+    return std::string();
+}

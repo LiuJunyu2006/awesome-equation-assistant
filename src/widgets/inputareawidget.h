@@ -1,5 +1,6 @@
 #pragma once
 
+#include <QtCore/QString>
 #include <QtCore/QVector>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QScrollArea>
@@ -16,7 +17,12 @@ class InputAreaWidget : public QScrollArea {
 
     void init(int row, int column);
 
+    void setLabel(int x, int y, const QString& str);
+
+    QString getResult(int x, int y);
+
   private:
     QGridLayout* gridLayout;
+    QWidget* contents;
     QVector<QVector<InputWidget*>> inputWidgets;
 };

@@ -9,7 +9,7 @@ InputWidget::~InputWidget() {
     delete ui;
 }
 
-void InputWidget::setText(const QString& str) const {
+void InputWidget::setLabel(const QString& str) const {
     ui->label->setText(str);
 }
 

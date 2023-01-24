@@ -2,6 +2,7 @@
 
 #include <symengine/expression.h>
 
+#include <boost/rational.hpp>
 #include <boost/multiprecision/cpp_complex.hpp>
 #include <complex>
 #include <string>
@@ -14,7 +15,7 @@ using Decimal = Complex::value_type;
 using BigInteger = boost::multiprecision::cpp_int;
 using Rational = boost::rational<BigInteger>;
 
-std::string solveSystemOfLinearEquations(int n, int m, const std::vector<Rational>[]);
+std::string solveSystemOfLinearEquations(int n, int m, const std::vector<std::vector<Rational>>);
 
 std::string solveQuadraticEquation(const Expression& a, const Expression& b, const Expression& c);
 
