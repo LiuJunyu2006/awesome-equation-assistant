@@ -31,7 +31,7 @@ void KatexViewer::flush() const {
 
 <head>
     <link rel="stylesheet" href="%1/katex.min.css"
-        integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+    %2
 
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
     <script defer src="%1/katex.min.js"
