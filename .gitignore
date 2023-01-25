@@ -19,3 +19,6 @@ src/ui_*.cpp
 
 # IDEA cache
 .idea/
+
+# .user cache
+*.user

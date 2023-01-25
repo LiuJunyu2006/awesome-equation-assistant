@@ -31,6 +31,43 @@
 //     return res;
 // }
 
-std::string solveSystemOfLinearEquations(int n, int m, const std::vector<std::vector<Rational>>) {
-    return std::string();
+std::string toLatex(const Rational& x) {
+    if (x.denominator() == BigInteger(1))
+        return x.numerator().str();
+    else
+        return "\\frac{" + x.numerator().str() + "}{" + x.denominator().str() + "}";
+}
+
+std::string solveSystemOfLinearEquations(int equations, int unknowns, std::vector<std::vector<Rational>> vec) {
+    if (equations < unknowns)
+        return "\\text{"
+               "\350\257\245\346\226\271\347\250\213\346\227\240\350\247\243\346\210\226\344\270\215\345\255\230\345"
+               "\234\250\345\224\257\344\270\200\350\247\243\357\274\201}";
+    for (int i = 0; i < unknowns; ++i) {
+        for (int j = i; j < equations; ++j) {
+            if (vec[j][i] != Rational(0))
+                std::swap(vec[j], vec[i]);
+            break;
+        }
+        if (vec[i][i] == Rational(0))
+            return "\\text{"
+                   "\350\257\245\346\226\271\347\250\213\346\227\240\350\247\243\346\210\226\344\270\215\345\255\230"
+                   "\345\234\250\345\224\257\344\270\200\350\247\243\357\274\201}";
+        for (int j = unknowns; j >= i; --j)
+            vec[i][j] /= vec[i][i];
+        for (int j = 0; j < equations; ++j) {
+            if (j == i || vec[j][i] == Rational(0))
+                continue;
+            auto w = vec[j][i];
+            for (int k = 0; k <= unknowns; ++k)
+                vec[j][k] -= vec[i][k] * w;
+        }
+    }
+    for (int i = unknowns; i < equations; ++i)
+        if (vec[i][unknowns] != Rational(0))
+            return "\\text{\346\227\240\350\247\243\357\274\201}";
+    std::string res;
+    for (int i = 0; i < unknowns; ++i)
+        res += "x_" + std::to_string(i + 1) + "=" + toLatex(vec[i][unknowns]) + "\\\\";
+    return res;
 }

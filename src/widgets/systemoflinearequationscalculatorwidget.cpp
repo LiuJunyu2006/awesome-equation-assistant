@@ -22,6 +22,18 @@ void SystemOfLinearEquationsCalculatorWidget::init(int nums, int lines) {
     int columns = nums + 1;
     generateTip();
     inputArea->init(lines, columns);
+    for (int i = 0; i < lines; ++i) {
+        for (int j = 0; j < nums; ++j)
+            inputArea->setLabel(
+                i, j,
+                QString("<html><head/><body><p>a<span style=\" vertical-align:sub;\">%1,%2</span>=</p></body></html>")
+                    .arg(i + 1)
+                    .arg(j + 1));
+        inputArea->setLabel(
+            i, nums,
+            QString("<html><head/><body><p>b<span style=\" vertical-align:sub;\">%1</span>=</p></body></html>")
+                .arg(i + 1));
+    }
     gridLayout->setSpacing(6);
     gridLayout->setContentsMargins(11, 11, 11, 11);
     gridLayout->addWidget(ui->label, 0, 0, 1, 1);
@@ -67,5 +79,5 @@ void SystemOfLinearEquationsCalculatorWidget::on_pushButton_clicked() const {
             vec[i].push_back(r);
         }
     ui->widget->clearContent();
-    ui->widget->addContent(QString::fromUtf8(solveSystemOfLinearEquations(unknowns, equations, vec)));
+    ui->widget->addContent(QString::fromUtf8(solveSystemOfLinearEquations(equations, unknowns, vec)));
 }

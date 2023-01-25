@@ -1,8 +1,14 @@
+#include <QtCore/QFile>
+#include <QtHttpServer/QHttpServer>
+#include <QtNetwork/QHostAddress>
 #include <QtWidgets/QApplication>
 
 #include "mainwindow.h"
 #include "widgets/congruenceequationscalculatorwidget.h"
-#include "widgets/inputareawidget.h"
+
+static inline QString host(const QHttpServerRequest& request) {
+    return QString::fromLatin1(request.value("Host"));
+}
 
 int main(int argc, char* argv[]) {
     // QApplication::setStyle("Plastique");

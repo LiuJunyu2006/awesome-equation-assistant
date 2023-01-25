@@ -2,12 +2,17 @@
 
 #include <symengine/expression.h>
 
-#include <boost/rational.hpp>
 #include <boost/multiprecision/cpp_complex.hpp>
+#include <boost/rational.hpp>
 #include <complex>
 #include <string>
+#include <tuple>
 #include <utility>
 #include <vector>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
 
 using SymEngine::Expression;
 using Complex = boost::multiprecision::cpp_complex_100;
@@ -15,7 +20,7 @@ using Decimal = Complex::value_type;
 using BigInteger = boost::multiprecision::cpp_int;
 using Rational = boost::rational<BigInteger>;
 
-std::string solveSystemOfLinearEquations(int n, int m, const std::vector<std::vector<Rational>>);
+std::string solveSystemOfLinearEquations(int equations, int unknowns, std::vector<std::vector<Rational>> vec);
 
 std::string solveQuadraticEquation(const Expression& a, const Expression& b, const Expression& c);
 
@@ -31,7 +36,7 @@ std::string solveQuarticEquation(const Decimal& a, const Decimal& b, const Decim
 
 std::string solveLinearCongruenceEquation(const BigInteger& a, const BigInteger& b, const BigInteger& n);
 
-std::string solveCongruenceEquations(int n, const std::pair<int, int>[]);
+std::string solveCongruenceEquations(int n, const std::vector<std::pair<BigInteger, BigInteger>>& vec);
 
 std::string solveZeroPointOfMonotonicFunction(const std::string& expr, Decimal l, Decimal r, bool inc);
 
@@ -63,3 +68,8 @@ std::string toString(const C& val) {
 
 template <>
 std::string toString(const std::complex<double>& val);
+
+BigInteger exgcd(BigInteger a, BigInteger b, BigInteger& x, BigInteger& y);
+
+std::tuple<BigInteger, BigInteger, BigInteger> calculateCubicEquation(const Decimal& a, const Decimal& b,
+                                                                      const Decimal& c, const Decimal& d);

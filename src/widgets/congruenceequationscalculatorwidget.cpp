@@ -16,6 +16,14 @@ CongruenceEquationsCalculatorWidget::~CongruenceEquationsCalculatorWidget() {
 void CongruenceEquationsCalculatorWidget::init(int lines) {
     equations = lines;
     inputArea->init(lines, 2);
+    for (int i = 1; i <= lines; ++i) {
+        inputArea->setLabel(
+            i - 1, 0,
+            QString("<html><head/><body><p>a<span style=\" vertical-align:sub;\">%1</span>=</p></body></html>").arg(i));
+        inputArea->setLabel(
+            i - 1, 1,
+            QString("<html><head/><body><p>n<span style=\" vertical-align:sub;\">%1</span>=</p></body></html>").arg(i));
+    }
     gridLayout->setSpacing(6);
     gridLayout->setContentsMargins(11, 11, 11, 11);
     gridLayout->addWidget(ui->label, 0, 0, 1, 1);
@@ -25,14 +33,11 @@ void CongruenceEquationsCalculatorWidget::init(int lines) {
 }
 
 void CongruenceEquationsCalculatorWidget::on_pushButton_clicked() const {
-    // QVector<QVector<Fraction>> vec(equations);
-    // for (int i = 0; i < equations; ++i) {
-    //     vec[i].resize(unknowns + 1);
-    //     for (int j = 0; j < unknowns + 1; ++j) {
-    //         QString str = ui->tableWidget->item(i, j)->text();
-    //         vec[i][j] = Fraction(str);
-    //     }
-    // }
+    std::vector<std::pair<BigInteger, BigInteger>> vec;
+    for (int i = 0; i < equations; ++i) {
+        vec.emplace_back(BigInteger(std::string(inputArea->getResult(i, 0).toLocal8Bit())),
+                         BigInteger(std::string(inputArea->getResult(i, 1).toLocal8Bit())));
+    }
     ui->widget->clearContent();
-    // ui->widget->addContent(solveSystemOfLinearEquations(vec));
+    ui->widget->addContent(QString::fromUtf8(solveCongruenceEquations(equations, vec)));
 }

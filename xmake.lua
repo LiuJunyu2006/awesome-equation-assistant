@@ -2,6 +2,7 @@ add_rules("mode.debug", "mode.release")
 
 add_requires("vcpkg::symengine")
 add_requires("vcpkg::boost-multiprecision")
+add_requires("vcpkg::boost-optional")
 add_requires("vcpkg::boost-rational")
 
 target("awesome-equation-assistant")
@@ -32,7 +33,7 @@ target("awesome-equation-assistant")
     add_files("src/solutions/*.h")
 
     add_files("resources/app.qrc")
-
+    
     add_frameworks("QtWebEngineCore")
     add_frameworks("QtWebEngineWidgets")
 
@@ -41,6 +42,18 @@ target("awesome-equation-assistant")
     add_packages("vcpkg::boost-multiprecision")
     add_packages("vcpkg::symengine")
     add_packages("vcpkg::boost-rational")
+    add_packages("vcpkg::boost-optional")
+
+target("aea-server")
+    add_rules("qt.console")
+
+    add_files("src/server/*.cpp")
+
+    add_files("resources/app.qrc")
+
+    add_frameworks("QtHttpServer")
+    add_frameworks("QtNetWork")
+
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
