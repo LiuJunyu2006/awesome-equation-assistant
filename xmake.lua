@@ -44,16 +44,6 @@ target("awesome-equation-assistant")
     add_packages("vcpkg::boost-rational")
     add_packages("vcpkg::boost-optional")
 
-target("aea-server")
-    add_rules("qt.console")
-
-    add_files("src/server/*.cpp")
-
-    add_files("resources/app.qrc")
-
-    add_frameworks("QtHttpServer")
-    add_frameworks("QtNetWork")
-
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io

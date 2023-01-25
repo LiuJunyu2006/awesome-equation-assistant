@@ -3,16 +3,14 @@
 #include <symengine/expression.h>
 
 #include <boost/multiprecision/cpp_complex.hpp>
+#include <boost/multiprecision/cpp_int.hpp>
+#include <boost/optional/optional.hpp>
 #include <boost/rational.hpp>
 #include <complex>
 #include <string>
 #include <tuple>
 #include <utility>
 #include <vector>
-#include <boost/multiprecision/cpp_int.hpp>
-#include <boost/multiprecision/cpp_int.hpp>
-#include <boost/multiprecision/cpp_int.hpp>
-#include <boost/multiprecision/cpp_int.hpp>
 
 using SymEngine::Expression;
 using Complex = boost::multiprecision::cpp_complex_100;
@@ -71,5 +69,5 @@ std::string toString(const std::complex<double>& val);
 
 BigInteger exgcd(BigInteger a, BigInteger b, BigInteger& x, BigInteger& y);
 
-std::tuple<BigInteger, BigInteger, BigInteger> calculateCubicEquation(const Decimal& a, const Decimal& b,
-                                                                      const Decimal& c, const Decimal& d);
+boost::optional<std::tuple<Decimal, Decimal, Decimal>> calculateCubicEquation(const Decimal& a, const Decimal& b,
+                                                                              const Decimal& c, const Decimal& d);

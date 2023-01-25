@@ -1,5 +1,7 @@
 ﻿#include "widgets/katexviewer.h"
 
+#include <QtCore/QFile>
+
 KatexViewer::KatexViewer(QWidget* parent) : QWidget(parent) {
     view = new QWebEngineView;
     layout = new QFormLayout(this);
@@ -31,7 +33,7 @@ void KatexViewer::flush() const {
 
 <head>
     <link rel="stylesheet" href="%1/katex.min.css"
-    %2
+        integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
 
     <!-- The loading of KaTeX is deferred to speed up page rendering -->
     <script defer src="%1/katex.min.js"
@@ -45,10 +47,9 @@ void KatexViewer::flush() const {
 </head>
 <body>
 )")
-                    .arg("https://127.0.0.1:50923/file/katex") +
+                    .arg("https://cdn.jsdelivr.net/npm/katex@0.16.4/dist")
                 content + R"(</body>
 
 </html>)";
     view->setHtml(html);
-    qDebug() << html;
 }
