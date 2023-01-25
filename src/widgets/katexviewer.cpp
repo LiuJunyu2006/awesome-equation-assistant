@@ -47,7 +47,7 @@ void KatexViewer::flush() const {
 </head>
 <body>
 )")
-                    .arg("https://cdn.jsdelivr.net/npm/katex@0.16.4/dist")
+                    .arg("https://cdn.jsdelivr.net/npm/katex@0.16.4/dist") +
                 content + R"(</body>
 
 </html>)";
