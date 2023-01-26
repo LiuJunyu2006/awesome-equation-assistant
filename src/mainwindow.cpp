@@ -1,6 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
+#include <QtWidgets/QMessageBox>
+
+#include "widgets/aboutwidget.h"
 #include "widgets/congruenceequationscalculatorwidget.h"
 #include "widgets/createcongruenceequationscalculatordialog.h"
 #include "widgets/createsystemoflinearequationscalculatordialog.h"
@@ -70,6 +73,7 @@ void MainWindow::generateCongruenceEquationsCalculator(int unknowns) {
 
 void MainWindow::createSystemOfLinearEquationsCalculator() {
     const auto dialog = new CreateSystemOfLinearEquationsCalculatorDialog(this);
+    dialog->setModal(true);
     dialog->show();
 }
 
@@ -136,6 +140,7 @@ void MainWindow::newLinearCongruenceEquationCalculator() {
 
 void MainWindow::createCongruenceEquationsCalculator() {
     const auto dialog = new CreateCongruenceEquationsCalculatorDialog(this);
+    dialog->setModal(true);
     dialog->show();
 }
 
@@ -166,6 +171,10 @@ void MainWindow::on_actionIndependentForm_triggered() {
     p->show();
     if (ui->tabWidget->count() == 0)
         ui->actionIndependentForm->setEnabled(false);
+}
+
+void MainWindow::on_actionAbout_triggered() {
+    QMessageBox::aboutQt(this);
 }
 
 void MainWindow::on_tabWidget_tabBarDoubleClicked(int index) {

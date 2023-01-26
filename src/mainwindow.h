@@ -35,6 +35,7 @@ class MainWindow : public QMainWindow {
     void closeTab(int index) const;
 
     void on_actionIndependentForm_triggered();
+    void on_actionAbout_triggered();
 
     void on_tabWidget_tabBarDoubleClicked(int index);
 

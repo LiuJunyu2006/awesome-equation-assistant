@@ -68,26 +68,22 @@
     <addaction name="separator"/>
     <addaction name="actionNewZeroPointOfMonotonicFunctionCalculator"/>
    </widget>
-   <widget class="QMenu" name="menuWindow">
-    <property name="title">
-     <string>窗口</string>
-    </property>
-    <addaction name="actionIndependentForm"/>
-   </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
      <string>关于</string>
     </property>
     <addaction name="actionAbout"/>
    </widget>
-   <widget class="QMenu" name="menu">
+   <widget class="QMenu" name="menuDisplay">
     <property name="title">
      <string>外观</string>
     </property>
+    <addaction name="actionIndependentForm"/>
+    <addaction name="separator"/>
+    <addaction name="actionAddMainWindow"/>
    </widget>
    <addaction name="menuNew"/>
-   <addaction name="menuWindow"/>
-   <addaction name="menu"/>
+   <addaction name="menuDisplay"/>
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
@@ -179,12 +175,7 @@
     <string notr="true">单调函数零点</string>
    </property>
   </action>
-  <action name="actionNewInputArea_3_3">
-   <property name="text">
-    <string>NewInputArea(3,3)</string>
-   </property>
-  </action>
-  <action name="actionNewMainWindow">
+  <action name="actionAddMainWindow">
    <property name="text">
     <string>新的多页面窗口</string>
    </property>
