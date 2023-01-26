@@ -7,7 +7,7 @@ InputAreaWidget::InputAreaWidget(QWidget* parent) : QScrollArea(parent) {
 
 InputAreaWidget::~InputAreaWidget() {
     for (auto& i : inputWidgets)
-        for (auto& j : i)
+        for (const auto& j : i)
             delete j;
     delete gridLayout;
 }
@@ -25,6 +25,10 @@ void InputAreaWidget::init(int row, int column) {
 
 void InputAreaWidget::setLabel(int x, int y, const QString& str) {
     inputWidgets[x][y]->setLabel(str);
+}
+
+void InputAreaWidget::setLabelValidator(int x, int y, const QRegularExpression& re) {
+    inputWidgets[x][y]->setValidator(new QRegularExpressionValidator(re, inputWidgets[x][y]));
 }
 
 QString InputAreaWidget::getResult(int x, int y) {

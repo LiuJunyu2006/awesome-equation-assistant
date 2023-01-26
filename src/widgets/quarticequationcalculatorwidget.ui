@@ -20,8 +20,11 @@
       <layout class="QGridLayout" name="gridLayout_4">
        <item row="2" column="1">
         <widget class="QLineEdit" name="lineEditC">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
@@ -41,8 +44,11 @@
        </item>
        <item row="1" column="1">
         <widget class="QLineEdit" name="lineEditB">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
@@ -55,8 +61,11 @@
        </item>
        <item row="3" column="1">
         <widget class="QLineEdit" name="lineEditD">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
@@ -69,8 +78,11 @@
        </item>
        <item row="0" column="1">
         <widget class="QLineEdit" name="lineEditA">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
@@ -83,15 +95,18 @@
        </item>
        <item row="4" column="1">
         <widget class="QLineEdit" name="lineEditE">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
       </layout>
      </item>
      <item row="2" column="0">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton">
        <property name="text">
         <string notr="true">解！</string>
        </property>
@@ -126,7 +141,7 @@
   <tabstop>lineEditC</tabstop>
   <tabstop>lineEditD</tabstop>
   <tabstop>lineEditE</tabstop>
-  <tabstop>pushButton_2</tabstop>
+  <tabstop>pushButton</tabstop>
  </tabstops>
  <resources/>
  <connections/>

@@ -13,6 +13,10 @@ void InputWidget::setLabel(const QString& str) const {
     ui->label->setText(str);
 }
 
+void InputWidget::setValidator(QValidator* vali) {
+    ui->lineEdit->setValidator(vali);
+}
+
 QString InputWidget::getResult() const {
     return ui->lineEdit->text();
 }

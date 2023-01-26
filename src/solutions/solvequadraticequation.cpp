@@ -4,6 +4,8 @@ using SymEngine::eval_complex_double;
 using SymEngine::eval_double;
 using SymEngine::I;
 using SymEngine::integer;
+using SymEngine::is_positive;
+using SymEngine::is_zero;
 using SymEngine::latex;
 using SymEngine::sqrt;
 using SymEngine::symbol;
@@ -46,24 +48,24 @@ x_2=\dfrac{-b-\sqrt{b^2-4ac}}{2a}=-\dfrac{1}{2}-\dfrac{\sqrt{5}}{2})";
     //  else if (comp == -1)
     //      res += "<0";
     //  res += "\\\\";
-    auto x = symbol("x");
+    const auto x = symbol("x");
     std::string res("\\def\\i{\\operatorname{i}}\n");
-    auto expr = a * pow(x, integer(2)) + b * x + c;
+    const auto expr = a * pow(x, integer(2)) + b * x + c;
     res += latex(SymEngine::expand(expr)) + "=0\\\\";
-    auto delta = b * b - 4 * a * c;
+    const auto delta = b * b - 4 * a * c;
     res += "\\Delta=b^2-4ac=" + latex(delta) + "\\\\";
     if (is_zero(delta)) {
-        res +=
-            "x_1=x_2=-\\frac{b}{2a}=" + latex(-b / (2 * a)) + "\\approx" + std::to_string(eval_double((-b / (2 * a))));
+        res += "x_1=x_2=-\\frac{b}{2a}=" + latex(expand(-b / (2 * a))) + "\\approx" +
+               std::to_string(eval_double((-b / (2 * a))));
     } else if (is_positive(delta)) {
-        auto x1 = (-b + sqrt(delta)) / (2 * a);
-        auto x2 = (-b - sqrt(delta)) / (2 * a);
+        const auto x1 = expand(-b + sqrt(delta)) / (2 * a);
+        const auto x2 = expand(-b - sqrt(delta)) / (2 * a);
         res += "x_1=\\frac{-b+\\sqrt{\\Delta}}{2a}=" + latex(x1) + "\\approx" + std::to_string(eval_double(x1)) +
                "\\\\" + "x_2=\\frac{-b-\\sqrt{\\Delta}}{2a}=" + latex(x2) + "\\approx" +
                std::to_string(eval_double(x2));
     } else {
-        auto x1 = (-b + sqrt(-delta) * Expression(I)) / (2 * a);
-        auto x2 = (-b - sqrt(-delta) * Expression(I)) / (2 * a);
+        const auto x1 = expand(-b + sqrt(-delta) * Expression(I)) / (2 * a);
+        const auto x2 = expand(-b - sqrt(-delta) * Expression(I)) / (2 * a);
         res += "x_1=\\frac{-b+\\operatorname{i}\\sqrt{-\\Delta}}{2a}=" + latex(x1) + "\\approx" +
                toString(eval_complex_double(x1)) + "\\\\" +
                "x_2=\\frac{-b-\\operatorname{i}\\sqrt{-\\Delta}}{2a}=" + latex(x2) + "\\approx" +
@@ -72,4 +74,19 @@ x_2=\dfrac{-b-\sqrt{b^2-4ac}}{2a}=-\dfrac{1}{2}-\dfrac{\sqrt{5}}{2})";
             res.replace(res.find('j'), 1, "\\operatorname{i}");
     }
     return res;
+}
+
+std::pair<Expression, Expression> calculateQuadraticEquation(const Expression& a, const Expression& b,
+                                                             const Expression& c) {
+    const auto delta = b * b - 4 * a * c;
+    if (is_zero(delta))
+        return {-b / (2 * a), -b / (2 * a)};
+    if (is_positive(delta)) {
+        const auto x1 = (-b + sqrt(delta)) / (2 * a);
+        const auto x2 = (-b - sqrt(delta)) / (2 * a);
+        return {x1, x2};
+    }
+    const auto x1 = (-b + sqrt(-delta) * Expression(I)) / (2 * a);
+    const auto x2 = (-b - sqrt(-delta) * Expression(I)) / (2 * a);
+    return {expand(x1), expand(x2)};
 }

@@ -8,7 +8,7 @@
 const Decimal EPS = boost::multiprecision::pow(Decimal(2), -100);
 
 bool xCalculateExpression(const std::string str) {
-    SymEngine::Expression expr(str);
+    const SymEngine::Expression expr(str);
     return SymEngine::is_positive(expr);
 }
 

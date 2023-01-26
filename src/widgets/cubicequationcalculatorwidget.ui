@@ -18,6 +18,9 @@
     <layout class="QGridLayout" name="gridLayout_2">
      <item row="0" column="0">
       <widget class="QLabel" name="label">
+       <property name="contextMenuPolicy">
+        <enum>Qt::NoContextMenu</enum>
+       </property>
        <property name="text">
         <string notr="true">&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;ax&lt;span style=&quot; vertical-align:super;&quot;&gt;3&lt;/span&gt;+bx&lt;span style=&quot; vertical-align:super;&quot;&gt;2&lt;/span&gt;+cx+d=0&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
@@ -27,6 +30,9 @@
       <layout class="QGridLayout" name="gridLayout">
        <item row="2" column="0">
         <widget class="QLabel" name="label_4">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
           <string notr="true">c=</string>
          </property>
@@ -34,13 +40,19 @@
        </item>
        <item row="0" column="1">
         <widget class="QLineEdit" name="lineEditA">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
           <string notr="true">a=</string>
          </property>
@@ -48,13 +60,19 @@
        </item>
        <item row="1" column="1">
         <widget class="QLineEdit" name="lineEditB">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_3">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
           <string notr="true">b=</string>
          </property>
@@ -62,13 +80,19 @@
        </item>
        <item row="2" column="1">
         <widget class="QLineEdit" name="lineEditC">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
        <item row="3" column="0">
         <widget class="QLabel" name="label_5">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
           <string notr="true">d=</string>
          </property>
@@ -76,8 +100,11 @@
        </item>
        <item row="3" column="1">
         <widget class="QLineEdit" name="lineEditD">
+         <property name="contextMenuPolicy">
+          <enum>Qt::NoContextMenu</enum>
+         </property>
          <property name="text">
-          <string notr="true"/>
+          <string notr="true">0</string>
          </property>
         </widget>
        </item>
@@ -85,6 +112,9 @@
      </item>
      <item row="2" column="0">
       <widget class="QPushButton" name="pushButton">
+       <property name="contextMenuPolicy">
+        <enum>Qt::NoContextMenu</enum>
+       </property>
        <property name="text">
         <string notr="true">解！</string>
        </property>
@@ -93,7 +123,11 @@
     </layout>
    </item>
    <item row="1" column="0">
-    <widget class="KatexViewer" name="widget" native="true"/>
+    <widget class="KatexViewer" name="widget" native="true">
+     <property name="contextMenuPolicy">
+      <enum>Qt::NoContextMenu</enum>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

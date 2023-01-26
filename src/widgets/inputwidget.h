@@ -2,6 +2,7 @@
 #define INPUTWIDGET_H
 
 #include <QtCore/QString>
+#include <QtGui/QValidator>
 #include <QtWidgets/QWidget>
 
 namespace Ui {
@@ -16,6 +17,8 @@ class InputWidget : public QWidget {
     ~InputWidget();
 
     void setLabel(const QString& str) const;
+
+    void setValidator(QValidator* vali);
 
     QString getResult() const;
 

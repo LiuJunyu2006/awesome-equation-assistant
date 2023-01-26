@@ -48,7 +48,7 @@
      <x>0</x>
      <y>0</y>
      <width>704</width>
-     <height>29</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuNew">
@@ -68,7 +68,27 @@
     <addaction name="separator"/>
     <addaction name="actionNewZeroPointOfMonotonicFunctionCalculator"/>
    </widget>
+   <widget class="QMenu" name="menuWindow">
+    <property name="title">
+     <string>窗口</string>
+    </property>
+    <addaction name="actionIndependentForm"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>关于</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>外观</string>
+    </property>
+   </widget>
    <addaction name="menuNew"/>
+   <addaction name="menuWindow"/>
+   <addaction name="menu"/>
+   <addaction name="menuAbout"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNewSystemOfLinearEquationsCalculator">
@@ -162,6 +182,29 @@
   <action name="actionNewInputArea_3_3">
    <property name="text">
     <string>NewInputArea(3,3)</string>
+   </property>
+  </action>
+  <action name="actionNewMainWindow">
+   <property name="text">
+    <string>新的多页面窗口</string>
+   </property>
+  </action>
+  <action name="actionIndependentForm">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>单页面独立窗口</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="actionWindows_Vista">
+   <property name="text">
+    <string>Windows 10</string>
    </property>
   </action>
  </widget>

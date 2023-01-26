@@ -52,11 +52,15 @@ template <typename C>
 std::string toString(const C& val) {
     std::string res;
     bool flag = false;
-    if (val.real().str(6, std::ios_base::fixed) != "0.000000") {
+    if ((val.real().str(6, std::ios_base::fixed) != "0.000000" &&
+         val.real().str(6, std::ios_base::fixed) != "-0.000000") ||
+        (val.imag().str(6, std::ios_base::fixed) == "0.000000" ||
+         val.imag().str(6, std::ios_base::fixed) == "-0.000000")) {
         flag = true;
         res += val.real().str(6, std::ios_base::fixed);
     }
-    if (val.imag().str(6, std::ios_base::fixed) != "0.000000") {
+    if (val.imag().str(6, std::ios_base::fixed) != "0.000000" &&
+        val.imag().str(6, std::ios_base::fixed) != "-0.000000") {
         if (flag && val.imag().str(6, std::ios_base::fixed).front() != '-')
             res += "+";
         res += val.imag().str(6, std::ios_base::fixed) + "\\i";
@@ -69,5 +73,11 @@ std::string toString(const std::complex<double>& val);
 
 BigInteger exgcd(BigInteger a, BigInteger b, BigInteger& x, BigInteger& y);
 
-boost::optional<std::tuple<Decimal, Decimal, Decimal>> calculateCubicEquation(const Decimal& a, const Decimal& b,
-                                                                              const Decimal& c, const Decimal& d);
+std::tuple<Complex, Complex, Complex> calculateCubicEquation(const Decimal& a, const Decimal& b, const Decimal& c,
+                                                             const Decimal& d);
+
+std::tuple<Complex, Complex, Complex, Complex> calculateQuarticEquation(const Decimal& a, const Decimal& b,
+                                                                        const Decimal& c, const Decimal& d,
+                                                                        const Decimal& e);
+
+std::pair<Expression, Expression> calculateQuadraticEquation(const Expression& a, const Expression& b, const Expression& c);

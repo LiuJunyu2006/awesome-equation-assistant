@@ -7,6 +7,7 @@ KatexViewer::KatexViewer(QWidget* parent) : QWidget(parent) {
     layout = new QFormLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
     layout->setWidget(0, QFormLayout::SpanningRole, view);
+    view->setContextMenuPolicy(Qt::NoContextMenu);
     addContent("\\KaTeX");
     flush();
 }
@@ -27,7 +28,7 @@ void KatexViewer::addContent(const QString& str) {
 }
 
 void KatexViewer::flush() const {
-    auto html = QString(R"(<!DOCTYPE html>
+    const auto html = QString(R"(<!DOCTYPE html>
 <!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
 <html>
 
@@ -47,8 +48,8 @@ void KatexViewer::flush() const {
 </head>
 <body>
 )")
-                    .arg("https://cdn.jsdelivr.net/npm/katex@0.16.4/dist") +
-                content + R"(</body>
+                      .arg("https://cdn.jsdelivr.net/npm/katex@0.16.4/dist") +
+                      content + R"(</body>
 
 </html>)";
     view->setHtml(html);
