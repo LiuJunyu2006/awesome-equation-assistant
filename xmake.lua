@@ -33,6 +33,10 @@ target("awesome-equation-assistant")
     add_files("src/solutions/*.h")
 
     add_files("resources/app.qrc")
+
+    if is_plat("windows") then
+        add_files("resources/app.rc")
+    end
     
     add_frameworks("QtWebEngineCore")
     add_frameworks("QtWebEngineWidgets")

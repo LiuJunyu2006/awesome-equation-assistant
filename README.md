@@ -2,7 +2,7 @@
 
 ## 从源码构建
 前提条件：
-- Qt 6.4
+- Qt 6.4（包括 QtWebEngine）
 - XMake 最新版本
 - Vcpkg 最新版本
 
