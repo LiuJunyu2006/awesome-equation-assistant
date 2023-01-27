@@ -21,4 +21,4 @@ src/ui_*.cpp
 .idea/
 
 # .user cache
-*.user
+xmake.lua.user
