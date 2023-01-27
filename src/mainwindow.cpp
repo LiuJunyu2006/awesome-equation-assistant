@@ -1,7 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QtWidgets/QMessageBox>
+#include <QtCore/QProcess>
+#include <QtCore/QDir>
+#include <QtWidgets/QApplication>
 
 #include "widgets/aboutwidget.h"
 #include "widgets/congruenceequationscalculatorwidget.h"
@@ -173,8 +175,15 @@ void MainWindow::on_actionIndependentForm_triggered() {
         ui->actionIndependentForm->setEnabled(false);
 }
 
+void MainWindow::on_actionAddMainWindow_triggered() {
+    QProcess* newProcess = new QProcess;
+    newProcess->start(QApplication::applicationDirPath() + QDir::separator() + "awesome-equation-assistant");
+}
+
 void MainWindow::on_actionAbout_triggered() {
-    QMessageBox::aboutQt(this);
+    auto p = new AboutWidget(this);
+    p->setModal(true);
+    p->show();
 }
 
 void MainWindow::on_tabWidget_tabBarDoubleClicked(int index) {

@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string notr="true">方程算力提升工具</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../resources/app.qrc">
+    <normaloff>:/icons/1024.png</normaloff>:/icons/1024.png</iconset>
+  </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
@@ -81,6 +85,8 @@
     <addaction name="actionIndependentForm"/>
     <addaction name="separator"/>
     <addaction name="actionAddMainWindow"/>
+    <addaction name="separator"/>
+    <addaction name="actionSettings"/>
    </widget>
    <addaction name="menuNew"/>
    <addaction name="menuDisplay"/>
@@ -198,8 +204,15 @@
     <string>Windows 10</string>
    </property>
   </action>
+  <action name="actionSettings">
+   <property name="text">
+    <string>外观设置</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="../resources/app.qrc"/>
+ </resources>
  <connections/>
 </ui>

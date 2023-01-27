@@ -6,7 +6,7 @@
 #include "widgets/congruenceequationscalculatorwidget.h"
 
 int main(int argc, char* argv[]) {
-    // QApplication::setStyle("Plastique");
+    QApplication::setStyle("Windows");
     QApplication a(argc, argv);
     
     MainWindow w;
