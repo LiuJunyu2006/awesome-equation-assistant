@@ -15,7 +15,7 @@ class ZeroPointOfMonotonicFunctionCalculatorWidget : public QWidget {
 
   public:
     ZeroPointOfMonotonicFunctionCalculatorWidget(QWidget* parent = nullptr);
-    ~ZeroPointOfMonotonicFunctionCalculatorWidget();
+    ~ZeroPointOfMonotonicFunctionCalculatorWidget() override;
 
   private slots:
     void on_pushButton_clicked() const;

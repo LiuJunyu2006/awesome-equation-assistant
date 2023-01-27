@@ -22,15 +22,15 @@ std::string solveSimultaneousQuadraticEquationsWithLinearEquation(const Expressi
                                                                   const Expression& c2) {
     Expression x1, x2, y1, y2;
     if (is_zero(b2)) {
-        auto x = -c2 / a2;
-        auto ys = calculateQuadraticEquation(c1, b1 * x + e1, a1 * x * x + d1 * x + f1);
+        const auto x = -c2 / a2;
+        const auto ys = calculateQuadraticEquation(c1, b1 * x + e1, a1 * x * x + d1 * x + f1);
         x1 = x2 = x;
         y1 = ys.first;
         y2 = ys.second;
     } else {
-        auto p1 = -a2 / b2, q1 = -c2 / b2;
-        auto xs = calculateQuadraticEquation(a1 + b1 * p1 + c1 * p1 * p1, b1 * q1 + 2 * c1 * p1 * q1 + d1 + e1 * p1,
-                                             c1 * q1 * q1 + e1 * q1 + f1);
+        const auto p1 = -a2 / b2, q1 = -c2 / b2;
+        const auto xs = calculateQuadraticEquation(a1 + b1 * p1 + c1 * p1 * p1, b1 * q1 + 2 * c1 * p1 * q1 + d1 + e1 * p1,
+                                                   c1 * q1 * q1 + e1 * q1 + f1);
         x1 = xs.first;
         x2 = xs.second;
         y1 = p1 * x1 + q1;

@@ -14,7 +14,7 @@ class InputWidget : public QWidget {
 
   public:
     explicit InputWidget(QWidget* parent = nullptr);
-    ~InputWidget();
+    ~InputWidget() override;
 
     void setLabel(const QString& str) const;
 

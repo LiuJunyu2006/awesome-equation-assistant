@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>704</width>
-    <height>518</height>
+    <width>800</width>
+    <height>642</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -51,7 +51,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>704</width>
+     <width>800</width>
      <height>22</height>
     </rect>
    </property>
@@ -87,6 +87,7 @@
     <addaction name="actionAddMainWindow"/>
     <addaction name="separator"/>
     <addaction name="actionSettings"/>
+    <addaction name="actionFontSettings"/>
    </widget>
    <addaction name="menuNew"/>
    <addaction name="menuDisplay"/>
@@ -199,14 +200,14 @@
     <string>关于</string>
    </property>
   </action>
-  <action name="actionWindows_Vista">
-   <property name="text">
-    <string>Windows 10</string>
-   </property>
-  </action>
   <action name="actionSettings">
    <property name="text">
-    <string>外观设置</string>
+    <string>主题设置</string>
+   </property>
+  </action>
+  <action name="actionFontSettings">
+   <property name="text">
+    <string>字体设置</string>
    </property>
   </action>
  </widget>

@@ -17,7 +17,7 @@ class CreateCongruenceEquationsCalculatorDialog : public QDialog {
 
   public:
     CreateCongruenceEquationsCalculatorDialog(MainWindow* parent = nullptr);
-    ~CreateCongruenceEquationsCalculatorDialog();
+    ~CreateCongruenceEquationsCalculatorDialog() override;
 
   signals:
     void createCalculator(int equations);

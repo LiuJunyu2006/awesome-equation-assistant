@@ -15,7 +15,7 @@ class SimultaneousQuadraticEquationsCalculatorWidget : public QWidget {
 
   public:
     SimultaneousQuadraticEquationsCalculatorWidget(QWidget* parent = nullptr);
-    ~SimultaneousQuadraticEquationsCalculatorWidget();
+    ~SimultaneousQuadraticEquationsCalculatorWidget() override;
 
   private slots:
     void on_pushButton_clicked() const;

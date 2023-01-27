@@ -15,7 +15,7 @@ class QuadraticEquationCalculatorWidget : public QWidget {
 
   public:
     QuadraticEquationCalculatorWidget(QWidget* parent = nullptr);
-    ~QuadraticEquationCalculatorWidget();
+    ~QuadraticEquationCalculatorWidget() override;
 
   private slots:
     void on_pushButton_clicked() const;

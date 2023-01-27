@@ -15,7 +15,11 @@ class SettingsWidget : public QDialog {
 
   public:
     SettingsWidget(QWidget* parent = nullptr);
-    ~SettingsWidget();
+    ~SettingsWidget() override;
+
+  private slots:
+    void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
 
   private:
     Ui::SettingsWidgetClass* ui;

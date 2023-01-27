@@ -17,7 +17,7 @@ class CreateSystemOfLinearEquationsCalculatorDialog : public QDialog {
 
   public:
     CreateSystemOfLinearEquationsCalculatorDialog(MainWindow* parent = nullptr);
-    ~CreateSystemOfLinearEquationsCalculatorDialog();
+    ~CreateSystemOfLinearEquationsCalculatorDialog() override;
 
   signals:
     void createCalculator(int unknowns, int equations);

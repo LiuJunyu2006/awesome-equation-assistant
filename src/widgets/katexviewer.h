@@ -12,7 +12,7 @@ class KatexViewer : public QWidget {
   public:
     KatexViewer(QWidget* parent = nullptr);
 
-    ~KatexViewer();
+    ~KatexViewer() override;
 
   public slots:
     void clearContent();

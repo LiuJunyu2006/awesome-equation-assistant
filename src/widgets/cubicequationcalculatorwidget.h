@@ -15,7 +15,7 @@ class CubicEquationCalculatorWidget : public QWidget {
 
   public:
     CubicEquationCalculatorWidget(QWidget* parent = nullptr);
-    ~CubicEquationCalculatorWidget();
+    ~CubicEquationCalculatorWidget() override;
 
   private slots:
     void on_pushButton_clicked() const;

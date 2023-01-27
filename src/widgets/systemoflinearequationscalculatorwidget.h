@@ -18,7 +18,7 @@ class SystemOfLinearEquationsCalculatorWidget : public QWidget {
 
   public:
     SystemOfLinearEquationsCalculatorWidget(QWidget* parent = nullptr);
-    ~SystemOfLinearEquationsCalculatorWidget();
+    ~SystemOfLinearEquationsCalculatorWidget() override;
 
     void init(int nums, int lines);
 

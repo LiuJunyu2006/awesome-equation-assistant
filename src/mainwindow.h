@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
+#include <QtGui/QCloseEvent>
 
 namespace Ui {
 class MainWindow;
@@ -11,7 +12,7 @@ class MainWindow : public QMainWindow {
 
   public:
     explicit MainWindow(QWidget* parent = 0);
-    ~MainWindow();
+    ~MainWindow() override;
 
   public slots:
     void generateSystemOfLinearEquationsCalculator(int unknowns, int equations);
@@ -36,10 +37,14 @@ class MainWindow : public QMainWindow {
 
     void on_actionIndependentForm_triggered();
     void on_actionAddMainWindow_triggered();
+    void on_actionSettings_triggered();
+    void on_actionFontSettings_triggered();
 
     void on_actionAbout_triggered();
 
     void on_tabWidget_tabBarDoubleClicked(int index);
+
+    void closeEvent(QCloseEvent* event) override;
 
   private:
     Ui::MainWindow* ui;

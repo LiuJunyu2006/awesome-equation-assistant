@@ -1,9 +1,12 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-#include <QtCore/QProcess>
 #include <QtCore/QDir>
+#include <QtCore/QProcess>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFontDialog>
+
+#include <widgets/settingswidget.h>
 
 #include "widgets/aboutwidget.h"
 #include "widgets/congruenceequationscalculatorwidget.h"
@@ -177,11 +180,34 @@ void MainWindow::on_actionIndependentForm_triggered() {
 
 void MainWindow::on_actionAddMainWindow_triggered() {
     QProcess* newProcess = new QProcess;
-    newProcess->start(QApplication::applicationDirPath() + QDir::separator() + "awesome-equation-assistant");
+    newProcess->start(QDir(QApplication::applicationDirPath()).absoluteFilePath("awesome-equation-assistant"));
+}
+
+void MainWindow::on_actionSettings_triggered() {
+    const auto p = new SettingsWidget(this);
+    p->setModal(true);
+    p->show();
+}
+
+void MainWindow::on_actionFontSettings_triggered() {
+    bool ok;
+    QFont newFont = QFontDialog::getFont(&ok, font(), this);
+    if (ok) {
+        QApplication::setFont(newFont);
+
+        const QDir configDir(QDir::homePath() + QDir::separator() + ".awesome-equation-assistant");
+        if (!configDir.exists())
+            QDir::home().mkdir(".awesome-equation-assistant");
+
+        QFile configFont(configDir.absoluteFilePath("awesome-equation-assistant.config.appearance.font-family"));
+        configFont.open(QFile::WriteOnly);
+        configFont.write(newFont.toString().toUtf8());
+        configFont.close();
+    }
 }
 
 void MainWindow::on_actionAbout_triggered() {
-    auto p = new AboutWidget(this);
+    const auto p = new AboutWidget(this);
     p->setModal(true);
     p->show();
 }
@@ -195,4 +221,32 @@ void MainWindow::on_tabWidget_tabBarDoubleClicked(int index) {
     p->show();
     if (ui->tabWidget->count() == 0)
         ui->actionIndependentForm->setEnabled(false);
+}
+
+void MainWindow::closeEvent(QCloseEvent* event) {
+    const QDir configDir(QDir::homePath() + QDir::separator() + ".awesome-equation-assistant");
+    if (!configDir.exists())
+        QDir::home().mkdir(".awesome-equation-assistant");
+
+    QFile configGeometryX(configDir.absoluteFilePath("awesome-equation-assistant.config.appearance.geometry.x"));
+    configGeometryX.open(QFile::WriteOnly);
+    configGeometryX.write(std::to_string(geometry().x()).c_str());
+    configGeometryX.close();
+
+    QFile configGeometryY(configDir.absoluteFilePath("awesome-equation-assistant.config.appearance.geometry.y"));
+    configGeometryY.open(QFile::WriteOnly);
+    configGeometryY.write(std::to_string(geometry().y()).c_str());
+    configGeometryY.close();
+
+    QFile configGeometryWidth(
+        configDir.absoluteFilePath("awesome-equation-assistant.config.appearance.geometry.width"));
+    configGeometryWidth.open(QFile::WriteOnly);
+    configGeometryWidth.write(std::to_string(geometry().width()).c_str());
+    configGeometryWidth.close();
+
+    QFile configGeometryHeight(
+        configDir.absoluteFilePath("awesome-equation-assistant.config.appearance.geometry.height"));
+    configGeometryHeight.open(QFile::WriteOnly);
+    configGeometryHeight.write(std::to_string(geometry().height()).c_str());
+    configGeometryHeight.close();
 }

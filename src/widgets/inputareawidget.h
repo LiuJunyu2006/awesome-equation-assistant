@@ -14,7 +14,7 @@ class InputAreaWidget : public QScrollArea {
 
   public:
     InputAreaWidget(QWidget* parent);
-    ~InputAreaWidget();
+    ~InputAreaWidget() override;
 
     void init(int row, int column);
 

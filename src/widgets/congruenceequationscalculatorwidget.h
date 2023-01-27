@@ -18,7 +18,7 @@ class CongruenceEquationsCalculatorWidget : public QWidget {
 
   public:
     CongruenceEquationsCalculatorWidget(QWidget* parent = nullptr);
-    ~CongruenceEquationsCalculatorWidget();
+    ~CongruenceEquationsCalculatorWidget() override;
 
     void init(int lines);
 
